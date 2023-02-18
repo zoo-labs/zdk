@@ -1,6 +1,6 @@
 {
     "name": "@zoolabs/sdk",
-    "version": "0.4.0",
+    "version": "5.4.0",
     "description": "An SDK that can be used in any javascript/typescript context to easily interact with Zoo liquidity APIs",
     "source": "src/index.ts",
     "main": "dist/index.js",

@@ -1,7 +1,7 @@
 {
   "name": "@zoolabs/ui",
   "description": "ZDK is the official frontend kit to get you building dApps with the Zoo Protocol.",
-  "version": "0.9.0",
+  "version": "5.9.0",
   "author": "Zoo Protocol",
   "license": "MIT",
   "source": "src/index.ts",

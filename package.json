@@ -1,9 +1,9 @@
 {
   "private": true,
   "name": "zdk",
-  "version": "0.0.0",
+  "version": "5.0.0",
   "description": "ZDK is the official frontend kit to get you started building dApps with the Zoo Protocol.",
-  "author": "Reservoir Protocol",
+  "author": "Lux Protocol",
   "license": "MIT",
   "workspaces": [
     "packages/*",
