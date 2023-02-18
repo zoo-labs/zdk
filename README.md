@@ -1,15 +1,15 @@
 <h3 align="center">ZooKit</h3>
   <p align="center">
-    ZooKit is a developer toolkit for buying, selling and managing Zoo NFTs.
+    ZDK is a developer toolkit for buying, selling and managing Zoo NFTs.
   </p>
 
-### Installing ZooKit
+### Installing ZDK
 
 ```
 yarn add @zoolabs/ui
 ```
 
-Also make sure to install the peer dependencies required by ZooKit if your application doesn't already include them:
+Also make sure to install the peer dependencies required by ZDK if your application doesn't already include them:
 
 ```
 yarn add wagmi ethers react react-dom
