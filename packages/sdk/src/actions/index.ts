@@ -2,7 +2,7 @@ import actions from './actions'
 import * as utils from '../utils'
 import { version } from '../../package.json'
 
-export type ReservoirChain = {
+export type ZooChain = {
   id: number
   baseApiUrl: string
   default: boolean
@@ -10,7 +10,7 @@ export type ReservoirChain = {
 }
 
 /**
- * ReservoirClient Configuration Options
+ * ZooClient Configuration Options
  * @param chains List of chain objects with configuration (id, baseApiUrl, apiKey and if it's the default)
  * @param source Used to manually override the source domain used to attribute local orders
  * @param automatedRoyalties If true, royalties will be automatically included, defaults to true. Only relevant for creating orders.
@@ -18,8 +18,8 @@ export type ReservoirChain = {
  * @param marketplaceFeeRecipient Marketplace fee recipient
  * @param normalizeRoyalties Normalize orders that don't have royalties by apply royalties on top of them
  */
-export type ReservoirClientOptions = {
-  chains: ReservoirChain[]
+export type ZooClientOptions = {
+  chains: ZooChain[]
   uiVersion?: string
   source?: string
   automatedRoyalties?: boolean
@@ -28,13 +28,13 @@ export type ReservoirClientOptions = {
   normalizeRoyalties?: boolean
 }
 
-export type ReservoirClientActions = typeof actions
+export type ZooClientActions = typeof actions
 
-let _client: ReservoirClient
+let _client: ZooClient
 
-export class ReservoirClient {
+export class ZooClient {
   version: string
-  chains: ReservoirChain[]
+  chains: ZooChain[]
   source?: string
   uiVersion?: string
   marketplaceFee?: number
@@ -43,9 +43,9 @@ export class ReservoirClient {
   normalizeRoyalties?: boolean
 
   readonly utils = { ...utils }
-  readonly actions: ReservoirClientActions = actions
+  readonly actions: ZooClientActions = actions
 
-  constructor(options: ReservoirClientOptions) {
+  constructor(options: ZooClientOptions) {
     this.version = version
     this.chains = options.chains
     this.uiVersion = options.uiVersion
@@ -62,7 +62,7 @@ export class ReservoirClient {
         }
         this.source = host
         console.warn(
-          'ReservoirKit automatically generated a source based on the url, we recommend providing a source when initializing ReservoirKit. Refer to our docs for steps on how to do this: http://docs.reservoir.tools'
+          'ZooKit automatically generated a source based on the url, we recommend providing a source when initializing ZooKit. Refer to our docs for steps on how to do this: http://docs.reservoir.tools'
         )
       }
     } else {
@@ -70,7 +70,7 @@ export class ReservoirClient {
     }
   }
 
-  configure(options: ReservoirClientOptions) {
+  configure(options: ZooClientOptions) {
     this.source = options.source ? options.source : this.source
     this.uiVersion = options.uiVersion ? options.uiVersion : this.uiVersion
     this.chains = options.chains ? options.chains : this.chains
@@ -104,9 +104,9 @@ export function getClient() {
   return _client
 }
 
-export function createClient(options: ReservoirClientOptions) {
+export function createClient(options: ZooClientOptions) {
   if (!_client) {
-    _client = new ReservoirClient(options)
+    _client = new ZooClient(options)
   } else {
     _client.configure(options)
   }

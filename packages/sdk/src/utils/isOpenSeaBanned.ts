@@ -18,8 +18,8 @@ export async function isOpenSeaBanned(ids: string[]) {
   const res = await axios.get(url)
   const json = res.data
   const client = getClient()
-  const currentReservoirChain = client?.currentChain()
-  const baseApiUrl = currentReservoirChain?.apiKey
+  const currentZooChain = client?.currentChain()
+  const baseApiUrl = currentZooChain?.apiKey
   const statuses: Record<string, boolean> = json.assets.reduce(
     (statuses: Record<string, boolean>, asset: any) => {
       statuses[`${asset.asset_contract.address}:${asset.token_id}`] =
@@ -29,7 +29,7 @@ export async function isOpenSeaBanned(ids: string[]) {
     {} as Record<string, boolean>
   )
   if (res.status === 200 && baseApiUrl) {
-    const apiKey = currentReservoirChain.apiKey
+    const apiKey = currentZooChain.apiKey
     const headers: AxiosRequestHeaders = {
       'Content-Type': 'application/json',
       'x-rkc-version': version,

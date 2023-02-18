@@ -1,4 +1,4 @@
-export interface ReservoirKitTheme {
+export interface ZDKTheme {
   radii: {
     borderRadius: string
   }
@@ -7,13 +7,13 @@ export interface ReservoirKitTheme {
     button: string
     headline: string
   }
-  colors: ReservoirKitThemeColors
+  colors: ZDKThemeColors
   assets: {
     ethIcon: 'glyph' | 'gray' | 'purple'
   }
 }
 
-export interface ReservoirKitThemeColors {
+export interface ZDKThemeColors {
   // accent colors
   accentBase: string
   accentBgSubtle: string
@@ -77,7 +77,7 @@ export interface ReservoirKitThemeColors {
   popoverBackground: string
 }
 
-export type ReservoirKitOverrides = {
+export type ZDKOverrides = {
   borderRadius?: string
   font?: string
   buttonFont?: string
@@ -94,14 +94,14 @@ export type ReservoirKitOverrides = {
   overlayBackground?: string
   popoverBackground?: string
   borderColor?: string
-  ethIcon?: ReservoirKitTheme['assets']['ethIcon']
+  ethIcon?: ZDKTheme['assets']['ethIcon']
 }
 
-type ReservoirKitSharedTheme = Pick<ReservoirKitTheme, 'fonts' | 'radii'>
+type ZDKSharedTheme = Pick<ZDKTheme, 'fonts' | 'radii'>
 
 export const sharedThemeConfig = (
-  overrides?: ReservoirKitOverrides
-): ReservoirKitSharedTheme => {
+  overrides?: ZDKOverrides
+): ZDKSharedTheme => {
   return {
     radii: {
       borderRadius: overrides?.borderRadius || '4px',

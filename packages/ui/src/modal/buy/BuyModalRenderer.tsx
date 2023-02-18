@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState, useCallback, ReactNode } from 'react'
 import {
   useTokens,
   useCoinConversion,
-  useReservoirClient,
+  useZooClient,
   useTokenOpenseaBanned,
   useCollections,
   useListings,
@@ -10,7 +10,7 @@ import {
 import { useAccount, useBalance, useSigner, useNetwork } from 'wagmi'
 
 import { BigNumber, utils } from 'ethers'
-import { Execute, ReservoirClientActions } from '@reservoir0x/reservoir-sdk'
+import { Execute, ZooClientActions } from '@zoolabs/sdk'
 import { UseBalanceToken } from '../../types/wagmi'
 import { toFixed } from '../../lib/numbers'
 import { formatUnits } from 'ethers/lib/utils.js'
@@ -153,7 +153,7 @@ export const BuyModalRenderer: FC<Props> = ({
   const feeUsd = referrerFee * (usdPrice || 0)
   const totalUsd = totalPrice * (usdPrice || 0)
 
-  const client = useReservoirClient()
+  const client = useZooClient()
 
   const buyToken = useCallback(() => {
     if (!signer) {
@@ -169,7 +169,7 @@ export const BuyModalRenderer: FC<Props> = ({
     }
 
     if (!client) {
-      const error = new Error('ReservoirClient was not initialized')
+      const error = new Error('ZooClient was not initialized')
       setTransactionError(error)
       throw error
     }
@@ -177,7 +177,7 @@ export const BuyModalRenderer: FC<Props> = ({
     const contract = collectionId?.split(':')[0]
 
     let options: Parameters<
-      ReservoirClientActions['buyToken']
+      ZooClientActions['buyToken']
     >['0']['options'] = {}
 
     if (referrer && referrerFeeBps) {

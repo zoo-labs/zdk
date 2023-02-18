@@ -9,12 +9,12 @@ import React, {
 import {
   useTokens,
   useCoinConversion,
-  useReservoirClient,
+  useZooClient,
   useCollections,
   useBids,
 } from '../../hooks'
 import { useAccount, useSigner, useNetwork } from 'wagmi'
-import { Execute } from '@reservoir0x/reservoir-sdk'
+import { Execute } from '@zoolabs/sdk'
 import Fees from './Fees'
 
 export enum AcceptBidStep {
@@ -134,7 +134,7 @@ export const AcceptBidModalRenderer: FC<Props> = ({
   const collection = collections && collections[0] ? collections[0] : undefined
   const token = tokens && tokens.length > 0 ? tokens[0] : undefined
 
-  const client = useReservoirClient()
+  const client = useZooClient()
 
   let feeBreakdown
   let source
@@ -186,7 +186,7 @@ export const AcceptBidModalRenderer: FC<Props> = ({
     }
 
     if (!client) {
-      const error = new Error('ReservoirClient was not initialized')
+      const error = new Error('ZooClient was not initialized')
       setTransactionError(error)
       setTransactionError(null)
       throw error

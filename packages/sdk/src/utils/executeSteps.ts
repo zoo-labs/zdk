@@ -11,7 +11,7 @@ import { version } from '../../package.json'
 /**
  * When attempting to perform actions, such as, selling a token or
  * buying a token, the user's account needs to meet certain requirements. For
- * example, if the user attempts to buy a token the Reservoir API checks if the
+ * example, if the user attempts to buy a token the Zoo API checks if the
  * user has enough balance, before providing the transaction to be signed by
  * the user. This function executes all transactions, in order, to complete the
  * action.
@@ -36,12 +36,12 @@ export async function executeSteps(
     }
 
     const client = getClient()
-    const currentReservoirChain = client?.currentChain()
-    if (currentReservoirChain?.baseApiUrl) {
-      request.baseURL = currentReservoirChain.baseApiUrl
+    const currentZooChain = client?.currentChain()
+    if (currentZooChain?.baseApiUrl) {
+      request.baseURL = currentZooChain.baseApiUrl
     }
-    if (currentReservoirChain?.apiKey) {
-      request.headers['x-api-key'] = currentReservoirChain.apiKey
+    if (currentZooChain?.apiKey) {
+      request.headers['x-api-key'] = currentZooChain.apiKey
     }
     if (client?.uiVersion) {
       request.headers['x-rkui-version'] = client.uiVersion

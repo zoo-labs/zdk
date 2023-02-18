@@ -1,5 +1,5 @@
 import { useFallbackState } from '../../hooks'
-import { keyframes, styled } from '../../../stitches.config'
+import { keyframes } from '../../../stitches.config'
 import {
   Box,
   Flex,
@@ -17,7 +17,7 @@ import React, {
   ReactElement,
   ReactNode,
   SetStateAction,
-  useContext,
+  // useContext,
   useEffect,
   useMemo,
   useState,
@@ -29,8 +29,7 @@ import {
   faRefresh,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons'
-import { ProviderOptionsContext } from '../../ReservoirKitProvider'
-import ReservoirLogoWhiteText from '../../img/ReservoirLogoWhiteText'
+// import { ProviderOptionsContext } from '../../ZooProvider'
 import CartItem from './CartItem'
 import CartToast from './CartToast'
 import CartPopoverRenderer from './CartPopoverRenderer'
@@ -47,12 +46,6 @@ const scaleUp = keyframes({
 const scaleDown = keyframes({
   '0%': { opacity: 1, transform: 'scale(1) translateY(0)' },
   '100%': { opacity: 0, transform: 'scale(0.9) translateY(-10px)' },
-})
-
-const Logo = styled(ReservoirLogoWhiteText, {
-  '& .letter': {
-    fill: '$reservoirLogoColor',
-  },
 })
 
 type Props = {
@@ -76,7 +69,7 @@ export function CartPopover({
     openState ? openState[0] : false,
     openState
   )
-  const providerOptionsContext = useContext(ProviderOptionsContext)
+  // const providerOptionsContext = useContext(ProviderOptionsContext)
   const [displayPendingTransaction, setDisplayPendingTransaction] =
     useState(false)
   const [purchaseComplete, setPurchaseComplete] = useState(false)
@@ -483,30 +476,6 @@ export function CartPopover({
                       Waiting to be Validated...
                     </Button>
                   )}
-                {!providerOptionsContext.disablePoweredByReservoir && (
-                  <Flex
-                    css={{
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      visibility: '$poweredByReservoirVisibility',
-                      mt: 26,
-                    }}
-                  >
-                    <Anchor href="https://reservoir.tools/" target="_blank">
-                      <Text
-                        style="body2"
-                        color="subtle"
-                        css={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 4,
-                        }}
-                      >
-                        Powered by <Logo />
-                      </Text>
-                    </Anchor>
-                  </Flex>
-                )}
               </Flex>
             </Popover.Content>
             {open && (

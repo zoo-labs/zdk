@@ -9,11 +9,11 @@ import {
 } from '@radix-ui/colors'
 import {
   sharedThemeConfig,
-  ReservoirKitTheme,
-  ReservoirKitOverrides,
-} from './ReservoirKitTheme'
+  ZDKTheme,
+  ZDKOverrides,
+} from './ZDKTheme'
 
-export default function (overrides?: ReservoirKitOverrides): ReservoirKitTheme {
+export default function (overrides?: ZDKOverrides): ZDKTheme {
   let sharedTheme = sharedThemeConfig(overrides)
 
   return {

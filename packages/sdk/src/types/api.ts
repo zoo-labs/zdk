@@ -2166,7 +2166,7 @@ export interface definitions {
     feeBps?: number;
     feeBreakdown?: definitions["Model126"];
     expiration: number;
-    isReservoir?: boolean;
+    isZoo?: boolean;
     isDynamic?: boolean;
     createdAt: string;
     updatedAt: string;
@@ -2198,7 +2198,7 @@ export interface definitions {
     feeBps?: number;
     feeBreakdown?: definitions["Model126"];
     expiration: number;
-    isReservoir?: boolean;
+    isZoo?: boolean;
     isDynamic?: boolean;
     createdAt: string;
     updatedAt: string;
@@ -2259,7 +2259,7 @@ export interface definitions {
     feeBps?: number;
     feeBreakdown?: definitions["Model126"];
     expiration: number;
-    isReservoir?: boolean;
+    isZoo?: boolean;
     createdAt: string;
     updatedAt: string;
     rawData?: definitions["source"];
@@ -2290,7 +2290,7 @@ export interface definitions {
     feeBps?: number;
     feeBreakdown?: definitions["Model126"];
     expiration: number;
-    isReservoir?: boolean;
+    isZoo?: boolean;
     createdAt: string;
     updatedAt: string;
     rawData?: definitions["source"];
@@ -2321,7 +2321,7 @@ export interface definitions {
     feeBps?: number;
     feeBreakdown?: definitions["Model126"];
     expiration: number;
-    isReservoir?: boolean;
+    isZoo?: boolean;
     createdAt: string;
     updatedAt: string;
     rawData?: definitions["source"];
@@ -3618,7 +3618,7 @@ export interface definitions {
       | "infinity"
       | "flow";
     /**
-     * @description Orderbook where order is placed. Example: `Reservoir`
+     * @description Orderbook where order is placed. Example: `Zoo`
      * @default reservoir
      * @enum {string}
      */
@@ -3705,7 +3705,7 @@ export interface definitions {
       | "infinity"
       | "flow";
     /**
-     * @description Orderbook where order is placed. Example: `Reservoir`
+     * @description Orderbook where order is placed. Example: `Zoo`
      * @default reservoir
      * @enum {string}
      */
@@ -4087,7 +4087,7 @@ export interface definitions {
      */
     orderKind?: "looks-rare" | "zeroex-v4" | "seaport" | "x2y2";
     /**
-     * @description Orderbook where order is placed. Example: `Reservoir`
+     * @description Orderbook where order is placed. Example: `Zoo`
      * @default reservoir
      * @enum {string}
      */
@@ -4151,7 +4151,7 @@ export interface definitions {
       | "infinity"
       | "flow";
     /**
-     * @description Orderbook where order is placed. Example: `Reservoir`
+     * @description Orderbook where order is placed. Example: `Zoo`
      * @default reservoir
      * @enum {string}
      */
@@ -4215,7 +4215,7 @@ export interface definitions {
       | "infinity"
       | "flow";
     /**
-     * @description Orderbook where order is placed. Example: `Reservoir`
+     * @description Orderbook where order is placed. Example: `Zoo`
      * @default reservoir
      * @enum {string}
      */
@@ -5133,7 +5133,7 @@ export interface operations {
         attributes?: string;
         /** Domain of the order source. Example `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** Order the items are returned in the response, by default sorted by `floorAskPrice`. Not supported when filtering by `contract`. When filtering by `contract` the results are sorted by `tokenId` by default. */
         sortBy?: "floorAskPrice" | "tokenId" | "rarity";
@@ -5587,7 +5587,7 @@ export interface operations {
         weiPrice: string;
         /** Exchange protocol used to create order. Example: `seaport` */
         orderKind?: "looks-rare" | "zeroex-v4" | "seaport";
-        /** Orderbook where order is placed. Example: `Reservoir` */
+        /** Orderbook where order is placed. Example: `Zoo` */
         orderbook?: "reservoir" | "opensea" | "looks-rare";
         /** Name of the platform that created the order. Example: `Chimpers Market` */
         source?: string;
@@ -5752,7 +5752,7 @@ export interface operations {
         weiPrice: string;
         /** Exchange protocol used to create order. Example: `seaport` */
         orderKind?: "looks-rare" | "zeroex-v4" | "seaport" | "x2y2";
-        /** Orderbook where order is placed. Example: `Reservoir` */
+        /** Orderbook where order is placed. Example: `Zoo` */
         orderbook?: "opensea" | "looks-rare" | "reservoir" | "x2y2";
         /** Name of the platform that created the order. Example: `Chimpers Market` */
         source?: string;
@@ -5855,7 +5855,7 @@ export interface operations {
         id?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** Sell or buy side. */
         side?: "sell" | "buy";
@@ -5883,7 +5883,7 @@ export interface operations {
         id?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** Sell or buy side. */
         side?: "sell" | "buy";
@@ -5985,7 +5985,7 @@ export interface operations {
          */
         status?: string;
         source?: string[] | string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** If true, private orders are included in the response. */
         includePrivate?: boolean;
@@ -6040,7 +6040,7 @@ export interface operations {
         status?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** If true, private orders are included in the response. */
         includePrivate?: boolean;
@@ -6151,7 +6151,7 @@ export interface operations {
         status?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** If true, metadata is included in the response. */
         includeMetadata?: boolean;
@@ -6201,7 +6201,7 @@ export interface operations {
         status?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** If true, metadata is included in the response. */
         includeMetadata?: boolean;
@@ -6255,7 +6255,7 @@ export interface operations {
         status?: string;
         /** Filter to a source by domain. Example: `opensea.io` */
         source?: string;
-        /** If true, results will filter only Reservoir orders. */
+        /** If true, results will filter only Zoo orders. */
         native?: boolean;
         /** If true, criteria metadata is included in the response. */
         includeCriteriaMetadata?: boolean;

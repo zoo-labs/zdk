@@ -2,7 +2,7 @@ import React, { FC, useState, ReactNode, useCallback, useEffect } from 'react'
 import {
   useTokens,
   useCoinConversion,
-  useReservoirClient,
+  useZooClient,
   useMarketplaces,
   useListingPreapprovalCheck,
   useCollections,
@@ -12,7 +12,7 @@ import {
 } from '../../hooks'
 import { useAccount, useSigner } from 'wagmi'
 
-import { Execute, ReservoirClientActions } from '@reservoir0x/reservoir-sdk'
+import { Execute, ZooClientActions } from '@zoolabs/sdk'
 import { parseUnits } from 'ethers/lib/utils.js'
 import dayjs from 'dayjs'
 import { Marketplace } from '../../hooks/useMarketplaces'
@@ -29,7 +29,7 @@ export enum ListStep {
 }
 
 export type Listings = Parameters<
-  ReservoirClientActions['listToken']
+  ZooClientActions['listToken']
 >['0']['listings']
 
 export type ListingData = {
@@ -115,7 +115,7 @@ export const ListModalRenderer: FC<Props> = ({
 }) => {
   const { data: signer } = useSigner()
   const account = useAccount()
-  const client = useReservoirClient()
+  const client = useZooClient()
   const [listStep, setListStep] = useState<ListStep>(ListStep.SelectMarkets)
   const [listingData, setListingData] = useState<ListingData[]>([])
   const [allMarketplaces] = useMarketplaces(true)
@@ -326,7 +326,7 @@ export const ListModalRenderer: FC<Props> = ({
     }
 
     if (!client) {
-      const error = new Error('ReservoirClient was not initialized')
+      const error = new Error('ZooClient was not initialized')
       setTransactionError(error)
       throw error
     }

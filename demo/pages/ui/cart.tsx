@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { CartPopover, useDynamicTokens } from '@reservoir0x/reservoir-kit-ui'
+import { CartPopover, useDynamicTokens } from '@zoolabs/ui'
 import { useState } from 'react'
 import ThemeSwitcher from 'components/ThemeSwitcher'
 

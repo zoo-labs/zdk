@@ -32,7 +32,7 @@ import TokenStats from './TokenStats'
 import MarketplaceToggle from './MarketplaceToggle'
 import MarketplacePriceInput from './MarketplacePriceInput'
 import TokenListingDetails from './TokenListingDetails'
-import { useFallbackState, useReservoirClient } from '../../hooks'
+import { useFallbackState, useZooClient } from '../../hooks'
 import TransactionProgress from '../../modal/TransactionProgress'
 import ProgressBar from '../../modal/ProgressBar'
 import InfoTooltip from '../../primitives/InfoTooltip'
@@ -108,7 +108,7 @@ export function ListModal({
     openState
   )
   const [stepTitle, setStepTitle] = useState('')
-  const client = useReservoirClient()
+  const client = useZooClient()
   const reservoirChain = client?.currentChain()
   const [marketplacesToApprove, setMarketplacesToApprove] = useState<
     Marketplace[]
@@ -362,7 +362,7 @@ export function ListModal({
                         <Text style="body3">{localMarketplace?.name}</Text>
                         <Flex css={{ alignItems: 'center', gap: 8 }}>
                           <Text style="body3" color="subtle" as="div">
-                            on Reservoir
+                            on Zoo
                           </Text>
                           <InfoTooltip
                             side="bottom"

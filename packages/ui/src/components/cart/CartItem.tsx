@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useCart, useReservoirClient } from '../../hooks'
+import { useCart, useZooClient } from '../../hooks'
 import {
   Button,
   Flex,
@@ -49,7 +49,7 @@ const CloseButton = styled(Button, {
 const CartItem: FC<Props> = ({ item, usdConversion, tokenUrl }) => {
   const { token, collection, isBannedOnOpensea } = item
   const contract = collection.id.split(':')[0]
-  const client = useReservoirClient()
+  const client = useZooClient()
   const { remove, data: cartCurrency } = useCart((cart) => cart.currency)
   const { data: cartChain } = useCart((cart) => cart.chain)
 

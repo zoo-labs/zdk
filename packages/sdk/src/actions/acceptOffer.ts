@@ -43,7 +43,7 @@ export async function acceptOffer(data: Data) {
   const baseApiUrl = client.currentChain()?.baseApiUrl
 
   if (!client.currentChain()) {
-    throw new ReferenceError('ReservoirClient missing chain configuration')
+    throw new ReferenceError('ZooClient missing chain configuration')
   }
 
   try {

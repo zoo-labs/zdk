@@ -1,4 +1,4 @@
-import { getClient } from '@reservoir0x/reservoir-sdk'
+import { getClient } from '@zoolabs/sdk'
 import { constants } from 'ethers'
 import { Chain, goerli, mainnet, useNetwork } from 'wagmi'
 

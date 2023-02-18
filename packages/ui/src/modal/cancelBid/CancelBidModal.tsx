@@ -1,4 +1,4 @@
-import { useFallbackState, useReservoirClient, useTimeSince } from '../../hooks'
+import { useFallbackState, useZooClient, useTimeSince } from '../../hooks'
 import React, { ReactElement, Dispatch, SetStateAction, useEffect } from 'react'
 import { Flex, Text, Box, Button, Loader, Anchor } from '../../primitives'
 import { CancelBidModalRenderer, CancelStep } from './CancelBidModalRenderer'
@@ -31,7 +31,7 @@ export function CancelBidModal({
     openState ? openState[0] : false,
     openState
   )
-  const client = useReservoirClient()
+  const client = useZooClient()
   const { chain: activeChain } = useNetwork()
   const reservoirChain = client?.currentChain()
 

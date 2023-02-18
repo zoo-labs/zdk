@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState, useCallback, ReactNode } from 'react'
 import {
   useTokens,
   useCoinConversion,
-  useReservoirClient,
+  useZooClient,
   useTokenOpenseaBanned,
   useWrappedBalance,
   useCollections,
@@ -19,7 +19,7 @@ import {
 } from 'wagmi'
 
 import { constants } from 'ethers'
-import { Execute, ReservoirClientActions } from '@reservoir0x/reservoir-sdk'
+import { Execute, ZooClientActions } from '@zoolabs/sdk'
 import { ExpirationOption } from '../../types/ExpirationOption'
 import defaultExpirationOptions from '../../lib/defaultExpirationOptions'
 import { formatBN } from '../../lib/numbers'
@@ -96,7 +96,7 @@ type Props = {
 }
 
 export type BidData = Parameters<
-  ReservoirClientActions['placeBid']
+  ZooClientActions['placeBid']
 >['0']['bids'][0]
 
 export type StepData = {
@@ -172,7 +172,7 @@ export const BidModalRenderer: FC<Props> = ({
   )
   const bidAmountUsd = +bidAmount * (usdPrice || 0)
 
-  const client = useReservoirClient()
+  const client = useZooClient()
 
   const { address } = useAccount()
   const { data: balance } = useBalance({
@@ -265,7 +265,7 @@ export const BidModalRenderer: FC<Props> = ({
     }
 
     if (!client) {
-      const error = new Error('ReservoirClient was not initialized')
+      const error = new Error('ZooClient was not initialized')
       setTransactionError(error)
       throw error
     }

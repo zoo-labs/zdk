@@ -21,7 +21,7 @@ import {
   darkTheme as defaultTheme,
   ReservoirKitTheme,
   CartProvider,
-} from '@reservoir0x/reservoir-kit-ui'
+} from '@zoolabs/ui'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 const CHAIN_ID = Number(process.env.NEXT_PUBLIC_CHAIN_ID || 1)
 const SOURCE = process.env.NEXT_PUBLIC_SOURCE || 'reservoirkit.demo'

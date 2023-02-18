@@ -25,7 +25,7 @@ import {
   StepData,
 } from './AcceptBidModalRenderer'
 import Fees from './Fees'
-import { useFallbackState, useReservoirClient, useTimeSince } from '../../hooks'
+import { useFallbackState, useZooClient, useTimeSince } from '../../hooks'
 import { useNetwork } from 'wagmi'
 
 type BidData = {
@@ -76,7 +76,7 @@ export function AcceptBidModal({
     openState ? openState[0] : false,
     openState
   )
-  const client = useReservoirClient()
+  const client = useZooClient()
   const { chain: activeChain } = useNetwork()
   const reservoirChain = client?.currentChain()
 

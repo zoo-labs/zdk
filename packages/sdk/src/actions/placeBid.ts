@@ -25,7 +25,7 @@ export async function placeBid({ bids, signer, onProgress }: Data) {
   const baseApiUrl = client.currentChain()?.baseApiUrl
 
   if (!baseApiUrl) {
-    throw new ReferenceError('ReservoirClient missing configuration')
+    throw new ReferenceError('ZooClient missing configuration')
   }
 
   try {

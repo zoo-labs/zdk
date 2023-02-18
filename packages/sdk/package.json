@@ -1,12 +1,12 @@
 {
-    "name": "@reservoir0x/reservoir-sdk",
+    "name": "@zoolabs/sdk",
     "version": "0.4.0",
-    "description": "An SDK that can be used in any javascript/typescript context to easily interact with Reservoir liquidity APIs",
+    "description": "An SDK that can be used in any javascript/typescript context to easily interact with Zoo liquidity APIs",
     "source": "src/index.ts",
     "main": "dist/index.js",
     "module": "dist/index.module.js",
     "types": "dist/index.d.ts",
-    "author": "Reservoir Protocol",
+    "author": "Zoo Protocol",
     "license": "MIT",
     "files": [
         "dist"
@@ -21,7 +21,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/reservoirprotocol/reservoir-kit"
+        "url": "https://github.com/zoo-labs/zoo-kit"
     },
     "sideEffects": false,
     "keywords": [
@@ -42,6 +42,7 @@
         "access": "public"
     },
     "devDependencies": {
+        "@babel/core": "^7.12.0",
         "openapi-typescript": "^5.4.1"
     }
 }

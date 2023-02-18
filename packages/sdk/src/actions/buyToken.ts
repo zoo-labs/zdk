@@ -51,7 +51,7 @@ export async function buyToken(data: Data) {
   const baseApiUrl = client.currentChain()?.baseApiUrl
 
   if (!baseApiUrl) {
-    throw new ReferenceError('ReservoirClient missing chain configuration')
+    throw new ReferenceError('ZooClient missing chain configuration')
   }
 
   if (
@@ -61,7 +61,7 @@ export async function buyToken(data: Data) {
   ) {
     console.debug(data)
     throw new ReferenceError(
-      'ReservoirClient missing data: At least one of the following is required, tokens, orderIds or rawOrders'
+      'ZooClient missing data: At least one of the following is required, tokens, orderIds or rawOrders'
     )
   }
 
@@ -72,7 +72,7 @@ export async function buyToken(data: Data) {
   ) {
     console.debug(data)
     throw new ReferenceError(
-      'ReservoirClient conflicting data: tokens, orderIds and rawOrders are mutually exclusive'
+      'ZooClient conflicting data: tokens, orderIds and rawOrders are mutually exclusive'
     )
   }
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useCart, useReservoirClient, useTokens } from './'
+import { useCart, useZooClient, useTokens } from './'
 import { SWRInfiniteConfiguration } from 'swr/infinite'
 import { Cart } from './../context/CartProvider'
 
@@ -12,7 +12,7 @@ export default function (
   swrOptions: SWRInfiniteConfiguration = {},
   chainId?: number
 ) {
-  const client = useReservoirClient()
+  const client = useZooClient()
   const tokensResponse = useTokens(
     {
       includeDynamicPricing: true,

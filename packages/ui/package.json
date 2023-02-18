@@ -1,8 +1,8 @@
 {
-  "name": "@reservoir0x/reservoir-kit-ui",
-  "description": "ReservoirKit is the official frontend kit to get you started building dApps with the ReservoirProtocol.",
+  "name": "@zoolabs/ui",
+  "description": "ZDK is the official frontend kit to get you building dApps with the Zoo Protocol.",
   "version": "0.9.0",
-  "author": "Reservoir Protocol",
+  "author": "Zoo Protocol",
   "license": "MIT",
   "source": "src/index.ts",
   "exports": "./dist/index.module.js",
@@ -14,8 +14,8 @@
   ],
   "keywords": [
     "nft",
-    "reservoir",
-    "reservoirkit",
+    "zoo",
+    "zoolabs",
     "protocol",
     "sdk"
   ],
@@ -40,8 +40,8 @@
     "@radix-ui/react-switch": "1.0.0",
     "@radix-ui/react-toggle-group": "^1.0.0",
     "@react-hookz/web": "^19.2.0",
-    "@reservoir0x/reservoir-sdk": "workspace:*",
     "@stitches/react": "^1.2.8",
+    "@zoolabs/sdk": "workspace:*",
     "dayjs": "^1.11.4",
     "flatpickr": "^4.6.13",
     "framer-motion": "^6.4.2",
@@ -56,6 +56,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reservoirprotocol/reservoir-kit"
+    "url": "https://github.com/zoolabs/zoo-kit"
   }
 }

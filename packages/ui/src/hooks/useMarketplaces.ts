@@ -1,7 +1,7 @@
-import { paths } from '@reservoir0x/reservoir-sdk'
+import { paths } from '@zoolabs/sdk'
 import getLocalMarketplaceData from '../lib/getLocalMarketplaceData'
 import { useEffect, useState } from 'react'
-import useReservoirClient from './useReservoirClient'
+import useZooClient from './useZooClient'
 import useSWRImmutable from 'swr/immutable'
 
 export type Marketplace = NonNullable<
@@ -17,7 +17,7 @@ export default function (
   chainId?: number
 ): [Marketplace[], React.Dispatch<React.SetStateAction<Marketplace[]>>] {
   const [marketplaces, setMarketplaces] = useState<Marketplace[]>([])
-  const client = useReservoirClient()
+  const client = useZooClient()
   const chain =
     chainId !== undefined
       ? client?.chains.find((chain) => chain.id === chainId)

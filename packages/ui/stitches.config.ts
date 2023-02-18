@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
-import { ReservoirKitTheme } from './src/themes/ReservoirKitTheme'
+import { ZDKTheme } from './src/themes/ZDKTheme'
 
 export type CSS = Stitches.CSS<typeof config>
 export type CSSProps = { css?: CSS }
@@ -113,10 +113,10 @@ export const {
   prefix: 'rk',
 })
 
-export type ReservoirKitThemeContext = {
+export type ZDKThemeContext = {
   assets: {
     ethIcon: {
-      value: ReservoirKitTheme['assets']['ethIcon']
+      value: ZDKTheme['assets']['ethIcon']
     }
   }
 } & typeof theme

@@ -29,7 +29,7 @@ export async function cancelOrder(data: Data) {
   const baseApiUrl = client.currentChain()?.baseApiUrl
 
   if (!baseApiUrl) {
-    throw new ReferenceError('ReservoirClient missing chain configuration')
+    throw new ReferenceError('ZooClient missing chain configuration')
   }
 
   try {

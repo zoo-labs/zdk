@@ -2,8 +2,8 @@ import React, { FC, ComponentPropsWithoutRef, CSSProperties } from 'react'
 import { Button, Flex, Text } from '../../primitives'
 import TokenMedia from './index'
 import { defaultHeaders } from '../../lib/swr'
-import { useReservoirClient } from '../../hooks'
-import { paths } from '@reservoir0x/reservoir-sdk'
+import { useZooClient } from '../../hooks'
+import { paths } from '@zoolabs/sdk'
 
 type TokenFallbackProps = {
   style?: CSSProperties
@@ -20,7 +20,7 @@ const TokenFallback: FC<TokenFallbackProps> = ({
   chainId,
   onRefreshClicked,
 }) => {
-  const client = useReservoirClient()
+  const client = useZooClient()
   const reservoirChain = chainId
     ? client?.chains.find((chain) => chain.id === chainId)
     : client?.currentChain()
@@ -46,7 +46,7 @@ const TokenFallback: FC<TokenFallbackProps> = ({
         color="secondary"
         onClick={() => {
           if (!reservoirChain) {
-            throw 'ReservoirClient missing chain configuration'
+            throw 'ZooClient missing chain configuration'
           }
           onRefreshClicked()
           const url = `${reservoirChain?.baseApiUrl}/tokens/refresh/v1`

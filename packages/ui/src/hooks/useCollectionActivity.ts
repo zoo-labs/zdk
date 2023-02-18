@@ -1,6 +1,6 @@
-import { paths, setParams } from '@reservoir0x/reservoir-sdk'
+import { paths, setParams } from '@zoolabs/sdk'
 import { SWRInfiniteConfiguration } from 'swr/infinite'
-import { useInfiniteApi, useReservoirClient } from './'
+import { useInfiniteApi, useZooClient } from './'
 
 type CollectionActivityResponse =
   paths['/collections/activity/v5']['get']['responses']['200']['schema']
@@ -13,7 +13,7 @@ export default function (
   swrOptions: SWRInfiniteConfiguration = {},
   chainId?: number
 ) {
-  const client = useReservoirClient()
+  const client = useZooClient()
   const chain =
     chainId !== undefined
       ? client?.chains.find((chain) => chain.id === chainId)

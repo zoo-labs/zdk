@@ -1,4 +1,4 @@
-import { useCoinConversion, useCart, useReservoirClient } from '../../hooks'
+import { useCoinConversion, useCart, useZooClient } from '../../hooks'
 import React, { FC, ReactNode, useEffect, useMemo, useState } from 'react'
 import { useAccount, useBalance, useNetwork } from 'wagmi'
 import { BigNumber, constants, utils } from 'ethers'
@@ -38,7 +38,7 @@ type Props = {
 }
 
 export const CartPopoverRenderer: FC<Props> = ({ open, children }) => {
-  const client = useReservoirClient()
+  const client = useZooClient()
   const [hasEnoughCurrency, setHasEnoughCurrency] = useState(true)
   const { data, clear, clearTransaction, validate, remove, add, checkout } =
     useCart((cart) => cart)

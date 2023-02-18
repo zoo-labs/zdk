@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState, useCallback, ReactNode } from 'react'
-import { useCoinConversion, useReservoirClient, useListings } from '../../hooks'
+import { useCoinConversion, useZooClient, useListings } from '../../hooks'
 import { useSigner, useNetwork } from 'wagmi'
-import { Execute } from '@reservoir0x/reservoir-sdk'
+import { Execute } from '@zoolabs/sdk'
 
 export enum CancelStep {
   Cancel,
@@ -79,7 +79,7 @@ export const CancelListingModalRenderer: FC<Props> = ({
       : 0
   const totalUsd = usdPrice * (listing?.price?.amount?.decimal || 0)
 
-  const client = useReservoirClient()
+  const client = useZooClient()
 
   const cancelOrder = useCallback(() => {
     if (!signer) {
@@ -95,7 +95,7 @@ export const CancelListingModalRenderer: FC<Props> = ({
     }
 
     if (!client) {
-      const error = new Error('ReservoirClient was not initialized')
+      const error = new Error('ZooClient was not initialized')
       setTransactionError(error)
       throw error
     }

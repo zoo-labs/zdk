@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ReservoirLogoBlackText = () => {
+const ZooLogoBlackText = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -127,4 +127,4 @@ const ReservoirLogoBlackText = () => {
   )
 }
 
-export default ReservoirLogoBlackText
+export default ZooLogoBlackText

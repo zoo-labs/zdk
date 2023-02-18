@@ -1,15 +1,15 @@
 /// <reference path="./types/parcel.d.ts" />
 
 //Providers
-export { ReservoirKitProvider } from './ReservoirKitProvider'
-export { ReservoirClientProvider } from './ReservoirClientProvider'
+export { ZooProvider } from './ZooProvider'
+export { ZooClientProvider } from './ZooClientProvider'
 
 // Hooks
 export {
   useCollections,
   useCollectionActivity,
   useUsersActivity,
-  useReservoirClient,
+  useZooClient,
   useTokens,
   useTokenOpenseaBanned,
   useListings,
@@ -25,7 +25,7 @@ export {
 
 // Themes
 export { lightTheme, darkTheme } from './themes'
-export type { ReservoirKitTheme } from './themes/ReservoirKitTheme'
+export type { ZDKTheme } from './themes/ZDKTheme'
 
 //Components
 export { BuyModal } from './modal/buy/BuyModal'

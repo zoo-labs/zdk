@@ -1,6 +1,6 @@
-import { paths } from '@reservoir0x/reservoir-sdk'
+import { paths } from '@zoolabs/sdk'
 import useSWR, { SWRConfiguration } from 'swr'
-import useReservoirClient from './useReservoirClient'
+import useZooClient from './useZooClient'
 
 type AttributesResponse =
   paths['/collections/{collection}/attributes/all/v2']['get']['responses']['200']['schema']
@@ -10,7 +10,7 @@ export default function (
   chainId?: number,
   swrOptions: SWRConfiguration = {}
 ) {
-  const client = useReservoirClient()
+  const client = useZooClient()
   const chain =
     chainId !== undefined
       ? client?.chains.find((chain) => chain.id === chainId)

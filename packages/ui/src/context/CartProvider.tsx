@@ -1,12 +1,12 @@
 import {
   Execute,
-  ReservoirChain,
-  ReservoirClientActions,
+  ZooChain,
+  ZooClientActions,
   isOpenSeaBanned,
   paths,
   setParams,
-} from '@reservoir0x/reservoir-sdk'
-import { useReservoirClient, useTokens } from '../hooks'
+} from '@zoolabs/sdk'
+import { useZooClient, useTokens } from '../hooks'
 import { getChainCurrency } from '../hooks/useChainCurrency'
 import { defaultFetcher } from '../lib/swr'
 import React, {
@@ -29,7 +29,7 @@ type FloorAsk = NonNullable<NonNullable<Token['market']>['floorAsk']>
 type CartItemPrice = FloorAsk['price']
 type Currency = NonNullable<NonNullable<CartItemPrice>['currency']>
 type BuyTokenOptions = Parameters<
-  ReservoirClientActions['buyToken']
+  ZooClientActions['buyToken']
 >['0']['options']
 
 export enum CheckoutStatus {
@@ -71,12 +71,12 @@ export type Cart = {
   items: CartItem[]
   pools: Record<string, { prices: CartItemPrice[]; itemCount: number }>
   isValidating: boolean
-  chain?: ReservoirChain
+  chain?: ZooChain
   pendingTransactionId?: string
   transaction: {
     id?: string
     txHash?: string
-    chain: ReservoirChain
+    chain: ZooChain
     items: CartItem[]
     error?: Error
     errorType?: CheckoutTransactionError
@@ -110,7 +110,7 @@ function cartStore({
   })
 
   const subscribers = useRef(new Set<() => void>())
-  const client = useReservoirClient()
+  const client = useZooClient()
 
   useEffect(() => {
     if (persist && typeof window !== 'undefined' && window.localStorage) {
@@ -583,7 +583,7 @@ function cartStore({
   const checkout = useCallback(
     async (options: BuyTokenOptions = {}) => {
       if (!client) {
-        throw 'Reservoir SDK not initialized'
+        throw 'Zoo SDK not initialized'
       }
 
       const { chain: activeChain } = await getNetwork()
@@ -620,7 +620,7 @@ function cartStore({
           }
           return items
         },
-        [] as Parameters<ReservoirClientActions['buyToken']>['0']['tokens']
+        [] as Parameters<ZooClientActions['buyToken']>['0']['tokens']
       )
 
       if (!tokens || tokens.length === 0) {

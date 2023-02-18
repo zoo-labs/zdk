@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import useReservoirClient from './useReservoirClient'
+import useZooClient from './useZooClient'
 import { Marketplace } from './useMarketplaces'
 import { Listings } from '../modal/list/ListModalRenderer'
 import { useSigner } from 'wagmi'
-import { Execute } from '@reservoir0x/reservoir-sdk'
+import { Execute } from '@zoolabs/sdk'
 
 export default function (
   marketplaces: Marketplace[],
@@ -14,7 +14,7 @@ export default function (
     Marketplace[]
   >([])
   const [isFetching, setIsFetching] = useState(false)
-  const client = useReservoirClient()
+  const client = useZooClient()
   const { data: signer } = useSigner()
 
   useEffect(() => {

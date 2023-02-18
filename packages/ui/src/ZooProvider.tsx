@@ -8,29 +8,29 @@ import React, {
   ComponentPropsWithoutRef,
   useCallback,
 } from 'react'
-import { ReservoirClientOptions } from '@reservoir0x/reservoir-sdk'
-import { ReservoirKitTheme, darkTheme } from './themes'
-import { ReservoirClientProvider } from './ReservoirClientProvider'
+import { ZooClientOptions } from '@zoolabs/sdk'
+import { ZDKTheme, darkTheme } from './themes'
+import { ZooClientProvider } from './ZooClientProvider'
 import { SWRConfig } from 'swr'
 
-type ReservoirKitProviderOptions = {
-  disablePoweredByReservoir?: boolean
+type ZooProviderOptions = {
+  disablePoweredByZoo?: boolean
 }
-export interface ReservoirKitProviderProps {
+export interface ZooProviderProps {
   children: ReactNode
-  options?: ReservoirClientOptions & ReservoirKitProviderOptions
-  theme?: ReservoirKitTheme
+  options?: ZooClientOptions & ZooProviderOptions
+  theme?: ZDKTheme
   swrOptions?: ComponentPropsWithoutRef<typeof SWRConfig>['value']
 }
 
-import { createTheme, ReservoirKitThemeContext } from '../stitches.config'
+import { createTheme, ZDKThemeContext } from '../stitches.config'
 import { swrDefaultOptions } from './lib/swr'
 
-export const ThemeContext = createContext<undefined | ReservoirKitThemeContext>(
+export const ThemeContext = createContext<undefined | ZDKThemeContext>(
   undefined
 )
 export const ProviderOptionsContext =
-  createContext<ReservoirKitProviderOptions>({})
+  createContext<ZooProviderOptions>({})
 
 const defaultOptions = {
   chains: [{ baseApiUrl: 'https://api.reservoir.tools', id: 1, default: true }],
@@ -43,17 +43,17 @@ const classNameObserverOptions = {
 import calendarCss from './styles/calendar'
 import useMutationObservable from './hooks/useMutationObservable'
 
-export const ReservoirKitProvider: FC<ReservoirKitProviderProps> = function ({
+export const ZooProvider: FC<ZooProviderProps> = function ({
   children,
   options = defaultOptions,
   theme,
   swrOptions = {},
-}: ReservoirKitProviderProps) {
+}: ZooProviderProps) {
   const [globalTheme, setGlobalTheme] = useState<
-    undefined | ReservoirKitThemeContext
+    undefined | ZDKThemeContext
   >()
   const [providerOptions, setProviderOptions] =
-    useState<ReservoirKitProviderOptions>({})
+    useState<ZooProviderOptions>({})
   const currentTheme = useRef(null as any)
   const classNameCallback = useCallback(
     (mutationList: MutationRecord[]) => {
@@ -100,11 +100,11 @@ export const ReservoirKitProvider: FC<ReservoirKitProviderProps> = function ({
   return (
     <ThemeContext.Provider value={globalTheme}>
       <ProviderOptionsContext.Provider value={providerOptions}>
-        <ReservoirClientProvider options={options}>
+        <ZooClientProvider options={options}>
           <SWRConfig value={{ ...swrDefaultOptions, ...swrOptions }}>
             {children}
           </SWRConfig>
-        </ReservoirClientProvider>
+        </ZooClientProvider>
       </ProviderOptionsContext.Provider>
     </ThemeContext.Provider>
   )
