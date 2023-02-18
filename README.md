@@ -1,4 +1,4 @@
-<h3 align="center">ZooKit</h3>
+<h3 align="center">ZDK</h3>
   <p align="center">
     ZDK is a developer toolkit for buying, selling and managing Zoo NFTs.
   </p>

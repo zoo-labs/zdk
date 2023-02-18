@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../ZooProvider'
-import { ZDKThemeContext } from '../../stitches.config'
+import { zooThemeContext } from '../../stitches.config'
 import EthIconGlyph from '../img/EthIconGlyph'
 import EthIconGray from '../img/EthIconGray'
 import EthIconPurple from '../img/EthIconPurple'
 
 const EthLogo = () => {
   const themeContext = useContext(ThemeContext)
-  const ethIcon: ZDKThemeContext['assets']['ethIcon']['value'] =
+  const ethIcon: zooThemeContext['assets']['ethIcon']['value'] =
     themeContext && (themeContext as any)
       ? themeContext['assets']['ethIcon']['value']
       : 'glyph'

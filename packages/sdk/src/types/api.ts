@@ -3328,7 +3328,7 @@ export interface definitions {
     token?: string;
   };
   Model279: {
-    /** @description The source domain to sync. Example: `reservoir.market` */
+    /** @description The source domain to sync. Example: `zoolabs.io` */
     source?: string;
   };
   Model280: {
@@ -3392,7 +3392,7 @@ export interface definitions {
     method?: "get" | "post" | "delete" | "put";
   };
   Model289: {
-    /** @description The source domain to sync. Example: `reservoir.market` */
+    /** @description The source domain to sync. Example: `zoolabs.io` */
     source?: string;
     icon?: string;
     title?: string;
@@ -3866,7 +3866,7 @@ export interface definitions {
      * NOTE: if you want to fill a listing that is not the best priced, you need to pass a specific order ID.
      */
     preferredOrderSource?: string;
-    /** @description Filling source used for attribution. Example: `reservoir.market` */
+    /** @description Filling source used for attribution. Example: `zoolabs.io` */
     source?: string;
     feesOnTop?: definitions["Model327"];
     /**
@@ -3938,7 +3938,7 @@ export interface definitions {
      * NOTE: if you want to fill a listing that is not the best priced, you need to pass a specific order ID.
      */
     preferredOrderSource?: string;
-    /** @description Filling source used for attribution. Example: `reservoir.market` */
+    /** @description Filling source used for attribution. Example: `zoolabs.io` */
     source?: string;
     feesOnTop?: definitions["Model331"];
     /**
@@ -4040,7 +4040,7 @@ export interface definitions {
      * @default false
      */
     allowInactiveOrderIds?: boolean;
-    /** @description Filling source used for attribution. Example: `reservoir.market` */
+    /** @description Filling source used for attribution. Example: `zoolabs.io` */
     source?: string;
     feesOnTop?: definitions["Model331"];
     /**
@@ -4291,7 +4291,7 @@ export interface definitions {
     taker: string;
     /** @description Quantity of tokens user is selling. Only compatible when selling a single ERC1155 token. Example: `5` */
     quantity?: number;
-    /** @description Filling source used for attribution. Example: `reservoir.market` */
+    /** @description Filling source used for attribution. Example: `zoolabs.io` */
     source?: string;
     /**
      * @description If true, only the path will be returned.
@@ -4336,7 +4336,7 @@ export interface definitions {
     taker: string;
     /** @description Quantity of tokens user is selling. Only compatible when selling a single ERC1155 token. Example: `5` */
     quantity?: number;
-    /** @description Filling source used for attribution. Example: `reservoir.market` */
+    /** @description Filling source used for attribution. Example: `zoolabs.io` */
     source?: string;
     feesOnTop?: definitions["Model355"];
     /**
@@ -5633,7 +5633,7 @@ export interface operations {
         taker: string;
         /** If true, only quote will be returned. */
         onlyQuote?: boolean;
-        /** Filling source used for attribution. Example: `reservoir.market` */
+        /** Filling source used for attribution. Example: `zoolabs.io` */
         source?: string;
         /** Wallet address of referrer. Example: `0xF296178d553C8Ec21A2fBD2c5dDa8CA9ac905A00` */
         referrer?: string;
@@ -5671,7 +5671,7 @@ export interface operations {
         /** If true, all fills will be executed through the router. */
         forceRouter?: boolean;
         currency?: string;
-        /** Filling source used for attribution. Example: `reservoir.market` */
+        /** Filling source used for attribution. Example: `zoolabs.io` */
         source?: string;
         /** Wallet address of referrer. Example: `0xF296178d553C8Ec21A2fBD2c5dDa8CA9ac905A00` */
         referrer?: string;
@@ -5789,7 +5789,7 @@ export interface operations {
         token: string;
         /** Address of wallet filling the order. Example: `0xF296178d553C8Ec21A2fBD2c5dDa8CA9ac905A00` */
         taker: string;
-        /** Filling source used for attribution. Example: `reservoir.market` */
+        /** Filling source used for attribution. Example: `zoolabs.io` */
         source?: string;
         /** Wallet address of referrer. Example: `0xF296178d553C8Ec21A2fBD2c5dDa8CA9ac905A00` */
         referrer?: string;

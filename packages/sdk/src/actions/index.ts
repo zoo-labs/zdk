@@ -62,7 +62,7 @@ export class ZooClient {
         }
         this.source = host
         console.warn(
-          'ZooKit automatically generated a source based on the url, we recommend providing a source when initializing ZooKit. Refer to our docs for steps on how to do this: http://docs.reservoir.tools'
+          'ZDK automatically generated a source based on the url, we recommend providing a source when initializing ZDK. Refer to our docs for steps on how to do this: http://docs.reservoir.tools'
         )
       }
     } else {

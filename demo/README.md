@@ -5,7 +5,7 @@
 None of these are required, there are fallbacks for all of them.
 
 `NEXT_PUBLIC_CHAIN_ID`: Chain id, e.g. 1 for mainnet\
-`NEXT_PUBLIC_SOURCE`: Needs to be a domain, e.g. reservoir.market\
+`NEXT_PUBLIC_SOURCE`: Needs to be a domain, e.g. zoolabs.io\
 `NEXT_PUBLIC_MARKETPLACE_FEE`: A fee when creating orders (listing, bidding), in BPS (base point system)\
 `NEXT_PUBLIC_MARKETPLACE_FEE_RECIPIENT`: Ethereum address of the marketplace fee recipient\
 `NEXT_PUBLIC_REFERRAL_FEE`: A fee when filling an order (buying, selling), in BPS (base point system)\
