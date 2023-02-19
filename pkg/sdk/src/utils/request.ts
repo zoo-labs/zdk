@@ -1,16 +1,16 @@
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios'
-import { version } from '../../package.json'
+import axios, { AxiosRequestConfig } from 'axios'
+// import { version } from '../../package.json'
 import { getClient } from '../'
 
 export function request(config: AxiosRequestConfig = {}) {
   const client = getClient()
-  const currentZooChain = client.currentChain()
-  const headers: AxiosRequestHeaders = {
+  const currentChain = client.currentChain()
+  const headers: any = {
     'Content-Type': 'application/json',
-    'x-rkc-version': version,
+    'x-rkc-version': '0.4.0',
   }
-  if (currentZooChain?.apiKey) {
-    headers['x-api-key'] = currentZooChain.apiKey
+  if (currentChain?.apiKey) {
+    headers['x-api-key'] = currentChain.apiKey
   }
   return axios.request({ headers: headers, ...config })
 }

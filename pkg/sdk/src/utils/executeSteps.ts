@@ -3,10 +3,16 @@ import { Execute, paths } from '../types'
 import { pollUntilHasData, pollUntilOk } from './pollApi'
 import { Signer } from 'ethers'
 import { TypedDataSigner } from '@ethersproject/abstract-signer'
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { getClient } from '../actions/index'
 import { setParams } from './params'
-import { version } from '../../package.json'
+
+interface Headers {
+  'Content-Type': string
+  'x-api-key': string
+  'x-rkc-version': string
+  'x-rkui-version': string
+}
 
 /**
  * When attempting to perform actions, such as, selling a token or
@@ -32,21 +38,22 @@ export async function executeSteps(
     let json = newJson
 
     if (!request.headers) {
-      request.headers = {}
+      request.headers = {
+        'Content-Type': 'application/json',
+        'x-api-key':      '',
+        'x-rkc-version':  '0.4.0',
+        'x-rkui-version': '0.9.0',
+      }
     }
 
     const client = getClient()
-    const currentZooChain = client?.currentChain()
-    if (currentZooChain?.baseApiUrl) {
-      request.baseURL = currentZooChain.baseApiUrl
+    const currentChain = client?.currentChain()
+    if (currentChain?.baseApiUrl) {
+      request.baseURL = currentChain.baseApiUrl
     }
-    if (currentZooChain?.apiKey) {
-      request.headers['x-api-key'] = currentZooChain.apiKey
+    if (currentChain?.apiKey) {
+      request.headers['x-api-key'] = currentChain.apiKey
     }
-    if (client?.uiVersion) {
-      request.headers['x-rkui-version'] = client.uiVersion
-    }
-    request.headers['x-rkc-version'] = version
 
     if (!json) {
       const res = await axios.request(request)
@@ -164,8 +171,11 @@ export async function executeSteps(
         const confirmationUrl = new URL(
           `${request.baseURL}/transactions/${tx.hash}/synced/v1`
         )
-        const headers: AxiosRequestHeaders = {
-          'x-rkc-version': version,
+        const headers: Headers = {
+          'Content-Type': 'application/json',
+          'x-api-key': '0.0.0',
+          'x-rkc-version': '0.4.0',
+          'x-rkui-version': '0.9.0'
         }
 
         if (request.headers && request.headers['x-api-key']) {
@@ -173,13 +183,12 @@ export async function executeSteps(
         }
 
         if (client?.uiVersion) {
-          request.headers['x-rkui-version'] = client.uiVersion
         }
         await pollUntilOk(
           {
             url: confirmationUrl.href,
             method: 'get',
-            headers: headers,
+            headers: headers as any,
           },
           (res) => res && res.data.synced
         )
@@ -203,7 +212,7 @@ export async function executeSteps(
               {
                 url: indexerConfirmationUrl.href,
                 method: 'get',
-                headers: headers,
+                headers: headers as any,
               },
               (res) => {
                 if (res.status === 200) {
@@ -254,9 +263,11 @@ export async function executeSteps(
 
           try {
             const getData = async function () {
-              const headers: AxiosRequestHeaders = {
+              const headers: Headers = {
                 'Content-Type': 'application/json',
-                'x-rkc-version': version,
+                'x-api-key':      '',
+                'x-rkc-version':  '0.4.0',
+                'x-rkui-version': '0.9.0',
               }
               if (request.headers && request.headers['x-api-key']) {
                 headers['x-api-key'] = request.headers['x-api-key']
@@ -267,7 +278,7 @@ export async function executeSteps(
                 JSON.stringify(postData.body),
                 {
                   method: postData.method,
-                  headers,
+                  headers: (headers as any),
                   params: request.params,
                 }
               )
