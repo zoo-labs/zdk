@@ -1,7 +1,7 @@
 {
   "name": "@zoolabs/ui",
   "description": "ZDK is the official frontend kit to get you building dApps with the Zoo Protocol.",
-  "version": "5.9.1",
+  "version": "5.9.2",
   "author": "Zoo Labs Foundation",
   "license": "MIT",
   "source": "src/index.ts",
@@ -41,7 +41,7 @@
     "@radix-ui/react-toggle-group": "^1.0.0",
     "@react-hookz/web": "^19.2.0",
     "@stitches/react": "^1.2.8",
-    "@zoolabs/sdk": "workspace:*",
+    "@zoolabs/sdk": "5.4.1",
     "dayjs": "^1.11.4",
     "flatpickr": "^4.6.13",
     "framer-motion": "^6.4.2",
