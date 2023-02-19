@@ -9,7 +9,7 @@ import React, {
   useCallback,
 } from 'react'
 import { ZooClientOptions } from '@zoolabs/sdk'
-import { zooTheme, darkTheme } from './themes'
+import { Theme, darkTheme } from './themes'
 import { ZooClientProvider } from './ZooClientProvider'
 import { SWRConfig } from 'swr'
 
@@ -19,14 +19,14 @@ type ZooProviderOptions = {
 export interface ZooProviderProps {
   children: ReactNode
   options?: ZooClientOptions & ZooProviderOptions
-  theme?: zooTheme
+  theme?: Theme
   swrOptions?: ComponentPropsWithoutRef<typeof SWRConfig>['value']
 }
 
-import { createTheme, zooThemeContext } from '../stitches.config'
+import { createTheme, ThemeContext as stitchesThemeContext} from '../stitches.config'
 import { swrDefaultOptions } from './lib/swr'
 
-export const ThemeContext = createContext<undefined | zooThemeContext>(
+export const ThemeContext = createContext<undefined | stitchesThemeContext>(
   undefined
 )
 export const ProviderOptionsContext =
@@ -50,7 +50,7 @@ export const ZooProvider: FC<ZooProviderProps> = function ({
   swrOptions = {},
 }: ZooProviderProps) {
   const [globalTheme, setGlobalTheme] = useState<
-    undefined | zooThemeContext
+    undefined | stitchesThemeContext
   >()
   const [providerOptions, setProviderOptions] =
     useState<ZooProviderOptions>({})

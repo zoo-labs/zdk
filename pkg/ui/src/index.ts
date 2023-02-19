@@ -25,7 +25,7 @@ export {
 
 // Themes
 export { lightTheme, darkTheme } from './themes'
-export type { zooTheme } from './themes/zooTheme'
+export type { Theme } from './themes/Theme'
 
 //Components
 export { BuyModal } from './modal/buy/BuyModal'

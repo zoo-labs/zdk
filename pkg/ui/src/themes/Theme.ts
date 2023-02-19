@@ -1,4 +1,4 @@
-export interface zooTheme {
+export interface Theme {
   radii: {
     borderRadius: string
   }
@@ -7,13 +7,13 @@ export interface zooTheme {
     button: string
     headline: string
   }
-  colors: zooThemeColors
+  colors: ThemeColors
   assets: {
     ethIcon: 'glyph' | 'gray' | 'purple'
   }
 }
 
-export interface zooThemeColors {
+export interface ThemeColors {
   // accent colors
   accentBase: string
   accentBgSubtle: string
@@ -77,7 +77,7 @@ export interface zooThemeColors {
   popoverBackground: string
 }
 
-export type ZDKOverrides = {
+export type ThemeOverrides = {
   borderRadius?: string
   font?: string
   buttonFont?: string
@@ -94,14 +94,14 @@ export type ZDKOverrides = {
   overlayBackground?: string
   popoverBackground?: string
   borderColor?: string
-  ethIcon?: zooTheme['assets']['ethIcon']
+  ethIcon?: Theme['assets']['ethIcon']
 }
 
-type ZDKSharedTheme = Pick<zooTheme, 'fonts' | 'radii'>
+type SharedTheme = Pick<Theme, 'fonts' | 'radii'>
 
-export const sharedThemeConfig = (
-  overrides?: ZDKOverrides
-): ZDKSharedTheme => {
+export const SharedThemeConfig = (
+  overrides?: ThemeOverrides
+): SharedTheme => {
   return {
     radii: {
       borderRadius: overrides?.borderRadius || '4px',

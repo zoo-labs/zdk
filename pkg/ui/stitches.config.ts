@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
-import { zooTheme } from './src/themes/zooTheme'
+import { Theme } from './src/themes/Theme'
 
 export type CSS = Stitches.CSS<typeof config>
 export type CSSProps = { css?: CSS }
@@ -113,10 +113,10 @@ export const {
   prefix: 'rk',
 })
 
-export type zooThemeContext = {
+export type ThemeContext = {
   assets: {
     ethIcon: {
-      value: zooTheme['assets']['ethIcon']
+      value: Theme['assets']['ethIcon']
     }
   }
 } & typeof theme

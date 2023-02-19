@@ -8,13 +8,13 @@ import {
   green,
 } from '@radix-ui/colors'
 import {
-  sharedThemeConfig,
-  zooTheme,
-  ZDKOverrides,
-} from './zooTheme'
+  SharedThemeConfig,
+  Theme,
+  ThemeOverrides,
+} from './Theme'
 
-export default function (overrides?: ZDKOverrides): zooTheme {
-  let sharedTheme = sharedThemeConfig(overrides)
+export default function (overrides?: ThemeOverrides): Theme {
+  let sharedTheme = SharedThemeConfig(overrides)
 
   return {
     colors: {
