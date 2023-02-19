@@ -3446,7 +3446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zoolabs/sdk@workspace:*, @zoolabs/sdk@workspace:packages/sdk":
+"@zoolabs/sdk@5.4.1, @zoolabs/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@zoolabs/sdk@workspace:packages/sdk"
   dependencies:
@@ -3458,7 +3458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zoolabs/ui@workspace:*, @zoolabs/ui@workspace:packages/ui":
+"@zoolabs/ui@5.9.2, @zoolabs/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@zoolabs/ui@workspace:packages/ui"
   dependencies:
@@ -3474,7 +3474,7 @@ __metadata:
     "@radix-ui/react-toggle-group": ^1.0.0
     "@react-hookz/web": ^19.2.0
     "@stitches/react": ^1.2.8
-    "@zoolabs/sdk": "workspace:*"
+    "@zoolabs/sdk": 5.4.1
     dayjs: ^1.11.4
     flatpickr: ^4.6.13
     framer-motion: ^6.4.2
@@ -8982,7 +8982,7 @@ __metadata:
     "@types/node": ^12.12.21
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
-    "@zoolabs/ui": "workspace:*"
+    "@zoolabs/ui": 5.9.2
     ethers: ^5.6.9
     next: latest
     next-remote-watch: ^1.0.0

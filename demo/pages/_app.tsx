@@ -17,14 +17,14 @@ import { publicProvider } from 'wagmi/providers/public'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import '../fonts.css'
 import {
-  ReservoirKitProvider,
+  ZooProvider,
   darkTheme as defaultTheme,
-  ReservoirKitTheme,
+  zooTheme,
   CartProvider,
 } from '@zoolabs/ui'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 const CHAIN_ID = Number(process.env.NEXT_PUBLIC_CHAIN_ID || 1)
-const SOURCE = process.env.NEXT_PUBLIC_SOURCE || 'reservoirkit.demo'
+const SOURCE = process.env.NEXT_PUBLIC_SOURCE || 'zdk.demo'
 const FEE = process.env.NEXT_PUBLIC_MARKETPLACE_FEE
   ? +process.env.NEXT_PUBLIC_MARKETPLACE_FEE
   : undefined
@@ -41,7 +41,7 @@ const { chains, provider } = configureChains(
 )
 
 const { connectors } = getDefaultWallets({
-  appName: 'Reservoir Kit',
+  appName: 'ZDK Demo',
   chains,
 })
 
@@ -52,8 +52,8 @@ const wagmiClient = createClient({
 })
 
 export const ThemeSwitcherContext = React.createContext<{
-  theme: ReservoirKitTheme
-  setTheme: Dispatch<SetStateAction<ReservoirKitTheme>> | null
+  theme: zooTheme
+  setTheme: Dispatch<SetStateAction<zooTheme>> | null
 }>({
   theme: defaultTheme(),
   setTheme: null,
@@ -78,11 +78,11 @@ const AppWrapper: FC<any> = ({ children }) => {
 
   return (
     <WagmiConfig client={wagmiClient}>
-      <ReservoirKitProvider
+      <ZooProvider
         options={{
           chains: [
             {
-              baseApiUrl: 'https://api.reservoir.tools',
+              baseApiUrl: 'https://api.lux.market',
               id: allChains.mainnet.id,
               default: CHAIN_ID === allChains.mainnet.id,
               apiKey: API_KEY,
@@ -121,7 +121,7 @@ const AppWrapper: FC<any> = ({ children }) => {
             <RainbowKitProvider chains={chains}>{children}</RainbowKitProvider>
           </ThemeProvider>
         </CartProvider>
-      </ReservoirKitProvider>
+      </ZooProvider>
     </WagmiConfig>
   )
 }

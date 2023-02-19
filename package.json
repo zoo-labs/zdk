@@ -3,7 +3,7 @@
   "name": "zdk",
   "version": "5.0.0",
   "description": "ZDK is the official frontend kit to get you started building dApps with the Zoo Protocol.",
-  "author": "Lux Protocol",
+  "author": "Zoo Labs Foundation",
   "license": "MIT",
   "workspaces": [
     "packages/*",
