@@ -16,7 +16,7 @@
     "@radix-ui/colors": "^0.1.8",
     "@rainbow-me/rainbowkit": "^0.11.0",
     "@stitches/react": "^1.2.8",
-    "@zoolabs/ui": "5.9.3",
+    "@zoolabs/ui": "5.9.4",
     "ethers": "^6.0.5",
     "next": "^13.1.6",
     "next-remote-watch": "^2.0.0",
