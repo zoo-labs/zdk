@@ -34,6 +34,7 @@ const NORMALIZE_ROYALTIES = process.env.NEXT_PUBLIC_NORMALIZE_ROYALTIES
   ? process.env.NEXT_PUBLIC_NORMALIZE_ROYALTIES === 'true'
   : false
 const ALCHEMY_KEY = process.env.NEXT_PUBLIC_ALCHEMY_KEY || ''
+console.log('ALCHEMY_KEY', ALCHEMY_KEY)
 
 const { chains, provider } = configureChains(
   [allChains.mainnet, allChains.goerli, allChains.polygon],
@@ -82,7 +83,7 @@ const AppWrapper: FC<any> = ({ children }) => {
         options={{
           chains: [
             {
-              baseApiUrl: 'https://api.lux.market',
+              baseApiUrl: 'https://api.reservoir.tools',
               id: allChains.mainnet.id,
               default: CHAIN_ID === allChains.mainnet.id,
               apiKey: API_KEY,

@@ -4,6 +4,7 @@ import ThemeSwitcher from 'components/ThemeSwitcher'
 import Link from 'next/link'
 
 const Index: NextPage = () => {
+  console.log('index')
   return (
     <div
       style={{

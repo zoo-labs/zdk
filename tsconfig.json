@@ -1,5 +1,5 @@
 {
-  "include": ["packages"],
+  "include": ["pkg"],
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,

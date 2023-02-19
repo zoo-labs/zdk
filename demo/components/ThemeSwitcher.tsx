@@ -14,8 +14,8 @@ const getDemoThemeFromOption = (option: string) => {
     case 'decent': {
       return 'light'
     }
-    case 'reservoir': {
-      return 'light'
+    case 'zoo': {
+      return 'dark'
     }
     default: {
       return 'dark'
