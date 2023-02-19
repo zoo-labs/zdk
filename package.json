@@ -6,18 +6,19 @@
   "author": "Zoo Labs Foundation",
   "license": "MIT",
   "workspaces": [
-    "pkg/*",
-    "demo"
+    "demo",
+    "sdk",
+    "ui"
   ],
   "scripts": {
     "lint": "prettier --write .",
     "demo": "yarn workspace zdk-demo dev",
-    "dev": "parcel watch 'pkg/*' --no-cache",
+    "dev": "parcel watch sdk ui --no-cache",
     "clean": "yarn workspaces foreach --exclude primitives --exclude ssr-testing run clean",
     "types:check": "tsc --skipLibCheck --noEmit",
     "build": "yarn build:config && yarn build:packages && yarn build:cleanup",
     "build:config": "cp tsconfig.production.json tsconfig.json",
-    "build:packages": "parcel build 'pkg/*' --no-cache && yarn build:fix-type-defs",
+    "build:packages": "parcel build --no-cache sdk ui && yarn build:fix-type-defs",
     "build:fix-type-defs": "node ./scripts/fix-type-defs-imports",
     "build:cleanup": "cp tsconfig.production.json tsconfig.json",
     "publish:stable": "yarn bump:stable && yarn clean && yarn build && yarn workspaces foreach --no-private --exclude zdk --exclude demo npm publish --tolerate-republish --access public",
