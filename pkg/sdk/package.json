@@ -1,9 +1,8 @@
 {
     "name": "@zoolabs/sdk",
-    "version": "5.4.2",
+    "version": "5.4.3",
     "description": "An SDK that can be used in any javascript/typescript context to easily interact with Zoo liquidity APIs",
     "source": "src/index.ts",
-    "main": "dist/index.js",
     "module": "dist/index.mjs",
     "type": "module",
     "types": "dist/index.d.ts",
@@ -35,7 +34,7 @@
         "sdk"
     ],
     "peerDependencies": {
-        "ethers": "^5.0"
+        "ethers": "^5.7.2"
     },
     "dependencies": {
         "@types/node": "^18.14.0",
